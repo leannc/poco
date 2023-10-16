@@ -11,7 +11,7 @@
 # CMAKE_MC_COMPILER - where to find mc.exe
 if(WIN32)
 	# cmake has CMAKE_RC_COMPILER, but no message compiler
-	if("${CMAKE_GENERATOR}" MATCHES "Visual Studio")
+#	if("${CMAKE_GENERATOR}" MATCHES "Visual Studio")
 		# this path is only present for 2008+, but we currently require PATH to
 		# be set up anyway
 		get_filename_component(sdk_dir "[HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SDKs\\Windows;CurrentInstallFolder]" REALPATH)
@@ -39,7 +39,7 @@ if(WIN32)
 				endif()
 			endforeach()
 		endif(X64)
-	endif()
+#	endif()
 	find_program(CMAKE_MC_COMPILER mc.exe HINTS "${sdk_bindir}" "${kit_bindir}" "${kit81_bindir}" ${kit10_bindir}
 		DOC "path to message compiler")
 	if(NOT CMAKE_MC_COMPILER)
